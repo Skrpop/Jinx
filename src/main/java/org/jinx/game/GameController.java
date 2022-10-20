@@ -12,11 +12,13 @@ public class GameController {
      */
     private List<Player> players;
 
+
     /**
      * Basic Constructor of the GameController class
      */
     public GameController() {
         players = new ArrayList<>();
+
     }
 
     /**
