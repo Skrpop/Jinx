@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2f48a1e-3d3a-44d2-82a0-57d9e6b79efa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/PlayerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,7 @@
       <workItem from="1665317572240" duration="1474000" />
       <workItem from="1666085854751" duration="4396000" />
       <workItem from="1666103833934" duration="1321000" />
-      <workItem from="1666266894169" duration="9217000" />
+      <workItem from="1666266894169" duration="11279000" />
     </task>
     <servers />
   </component>

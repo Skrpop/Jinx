@@ -47,12 +47,12 @@ public class PlayerController {
 
             // if min player number is reached
             if (players.size() >= 2) {
-                System.out.println("Wollen sie noch ein weiteren Spieler hinzufügen?\n[yes, no]");
+                System.out.println("Wollen sie noch ein weiteren Spieler hinzufügen?\n[yes, no]:");
 
                 while (!input.hasNext("^yes|no$")) {
 
                     input.nextLine();
-                    System.out.println("Bitte geben sie yes oder no ein um weiter zu machen");
+                    System.out.println("Bitte geben sie yes oder no ein um weiter zu machen:");
                 }
 
                 // no case
@@ -63,6 +63,8 @@ public class PlayerController {
 
             addOnePlayer();
         }
+
+        System.out.println(players);
     }
 
     /**
@@ -70,21 +72,23 @@ public class PlayerController {
      */
     public void addOnePlayer() {
 
-        System.out.print("Gib deinen Spieler einen Namen: ");
+        System.out.println("Gib deinen Spieler einen Namen:");
 
         Scanner input = new Scanner(System.in);
 
-        while (!input.hasNext()) {
-            input.nextLine();
-            System.out.print("\nBitte gib deinen Spieler einen Namen");
-        }
+        String playerName;
+        boolean temp = false;
 
-        String playerName = input.next();
+        do {
+            playerName = input.nextLine();
 
-        if(doesPlayerExist(playerName)){
-            System.out.println("Spieler " + playerName +" existiert bereits");
-            addOnePlayer();
+            temp = doesPlayerExist(playerName);
+
+            if (temp) {
+                System.out.println("Spieler " + playerName + " existiert bereits.\nBitte geben sie ein anderen Namen ein:");
+            }
         }
+        while (temp);
 
         players.add(new Player(playerName));
 
