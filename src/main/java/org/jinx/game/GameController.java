@@ -7,25 +7,32 @@ import java.util.List;
 
 public class GameController {
 
+    private PlayerController pc;
     /**
      * Stores current players
      */
     private List<Player> players;
-
 
     /**
      * Basic Constructor of the GameController class
      */
     public GameController() {
         players = new ArrayList<>();
+        pc = PlayerController.getPlayerControllerInstance();
 
     }
 
     /**
      * Method starts the game
      */
-    public static void start() {
+    public void start() {
+        Game g1 = new Game();
+        pc.addPlayers();
+//        pc.next();
+        g1.fillDeck();
 
+        // i is the current round
+        g1.play(0);
     }
 
     /**

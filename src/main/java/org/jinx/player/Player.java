@@ -1,6 +1,7 @@
 package org.jinx.player;
 
 import org.jinx.card.Card;
+import org.jinx.card.NumberCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Player {
     /**
      * Stores the cards of the player in game
      */
-    private List<Card> cards;
+    private List<NumberCard> cards;
 
     /**
      * Standard COnstructor for the Player
@@ -43,5 +44,9 @@ public class Player {
 
     public void setUsedRedo(boolean usedRedo) {
         this.usedRedo = usedRedo;
+    }
+
+    public List<NumberCard> getCards() {
+        return cards;
     }
 }
