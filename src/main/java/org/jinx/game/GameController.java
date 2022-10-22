@@ -32,7 +32,6 @@ public class GameController {
     public void start() {
         Game g1 = new Game();
         pc.addPlayers();
-//        pc.next();
         g1.fillDeck();
 
         // i is the current round
@@ -66,7 +65,9 @@ public class GameController {
         }
         }
 
-
+    /**
+     * Method prints highscore at start of game
+     */
     private void printHighscore(){
 
     }

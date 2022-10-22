@@ -55,7 +55,7 @@ public class Game {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.print(field[i * 4 + j] == null ? "null\t" : field[i * 4 + j].toString() + "\t");
+                System.out.print(field[i * 4 + j] == null ? "\t\t\t" : field[i * 4 + j].toString() + " \t");
             }
 
             System.out.println();
@@ -77,7 +77,7 @@ public class Game {
             printField();
             pc.next(); // Player ändern
 
-            System.out.println("Aktiver Spieler " + pc.getCurrentPlayer().getName());
+            System.out.println("\nAktiver Spieler: " + pc.getCurrentPlayer().getName());
 
             System.out.println("Drücken sie eine Taste um zu Würfeln");
 
@@ -97,14 +97,14 @@ public class Game {
             // if true, then the round is over
             if (availableCards.isEmpty()) {
                 System.out.println("ENDE");
-                available = false;
+                //available = false;
                 break;
             }
 
             // show player available cards
             System.out.println("AVAILABLE CARDS");
             for (NumberCard card : availableCards) {
-                System.out.print(card.toString() + "\t");
+                System.out.print(card.toString() + " ");
             }
 
             System.out.println("\n---------------\n");
@@ -123,7 +123,7 @@ public class Game {
                     pc.getCurrentPlayer().getCards().add(card);
                     chosen = true;
 
-                    System.out.println(pc.getCurrentPlayer().getCards().toString() + "\n");
+                    System.out.println("Spieler: " + pc.getCurrentPlayer().getName() +"\n" + pc.getCurrentPlayer().getCards().toString() + "\n");
 
                     for (int i = 0; i < field.length; i++) {
                         if (field[i] != null && field[i].equals(card)) {
@@ -156,8 +156,11 @@ public class Game {
         }
 
         printHands();
+        findHighest();
 
-        //find highest card
+    }
+
+    private void findHighest(){
         if (!pc.getCurrentPlayer().getCards().isEmpty()) {
 
             NumberCard max = pc.getCurrentPlayer().getCards().get(0);
@@ -176,27 +179,28 @@ public class Game {
                     temp.add(pc.getCurrentPlayer().getCards().get(i));
                 }
             }
-
-
-            System.out.println(temp);
-
-            System.out.println("Welche Karte möchtest du wegwerfen?");
-
-            int index = scanner.nextInt();
-
-            if (index <= 0 || index > pc.getCurrentPlayer().getCards().size()) {
-                System.out.println("Falsche Eingabe");
-
-            } else {
-
-                pc.getCurrentPlayer().getCards().remove(temp.get(index - 1));
-
-                System.out.println("NACH WEGWURF ----------------");
-                printHands();
-            }
-
+            discard(temp);
         }
+    }
 
+    private void discard(List<NumberCard> highest){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(highest);
+
+        System.out.println("Welche Karte möchtest du wegwerfen?");
+        int index = scanner.nextInt();
+
+        if (index <= 0 || index > highest.size()) {
+            System.out.println("Falsche Eingabe");
+            discard(highest);
+
+        } else {
+
+            pc.getCurrentPlayer().getCards().remove(highest.get(index - 1));
+
+            System.out.println("NACH WEGWURF ----------------");
+            printHands();
+        }
     }
 
     /**
@@ -205,6 +209,7 @@ public class Game {
     private void printHands() {
         //print player hands
         for (Player player : pc.getPlayers()) {
+            System.out.println("Spieler: " + player.getName());
             for (NumberCard card : player.getCards()) {
                 System.out.println(card.toString());
             }

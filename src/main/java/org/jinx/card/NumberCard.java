@@ -27,7 +27,7 @@ public class NumberCard extends Card {
 //        output += "" + color.name() + " |\n";
 //        output += "-".repeat(color.name().length() + 2);
 
-        return "| " + getName() + " " + getColor() + " |";
+        return "|" + getName() + " " + getColor() + "|";
 //        return output;
 
     }
