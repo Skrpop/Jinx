@@ -111,20 +111,24 @@ public class Game {
 
             boolean chosen = false;
             while (!chosen) {
-
+                // choose a card
                 System.out.println("Wählen sie eine Karte aus: ");
                 int index = scanner.nextInt();
 
+                // check for index exception
                 if (index <= 0 || index > availableCards.size()) {
                     System.out.println("Falsche Eingabe");
 
                 } else {
+
+                    // add card to hand
                     NumberCard card = availableCards.get(index - 1);
                     pc.getCurrentPlayer().getCards().add(card);
                     chosen = true;
 
-                    System.out.println("Spieler: " + pc.getCurrentPlayer().getName() +"\n" + pc.getCurrentPlayer().getCards().toString() + "\n");
+                    System.out.println("Spieler: " + pc.getCurrentPlayer().getName() + "\n" + pc.getCurrentPlayer().getCards().toString() + "\n");
 
+                    // remove card from field
                     for (int i = 0; i < field.length; i++) {
                         if (field[i] != null && field[i].equals(card)) {
                             field[i] = null;
@@ -150,24 +154,22 @@ public class Game {
                         break;
                     }
                 }
-
             }
             player.getCards().removeAll(tempCards);
         }
 
         printHands();
         findHighest();
-
     }
 
     /**
      * finds highest NumberCard in playerhand
      */
-    private void findHighest(){
+    private void findHighest() {
         if (!pc.getCurrentPlayer().getCards().isEmpty()) {
 
             NumberCard max = pc.getCurrentPlayer().getCards().get(0);
-
+            //finds highest number in hand
             for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
                 if (Integer.parseInt(pc.getCurrentPlayer().getCards().get(i).getName()) > Integer.parseInt(max.getName())) {
                     max = pc.getCurrentPlayer().getCards().get(i);
@@ -175,6 +177,7 @@ public class Game {
                 }
             }
 
+            //check for multiples and add to temp list
             List<NumberCard> temp = new ArrayList<>();
             for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
 
@@ -188,21 +191,25 @@ public class Game {
 
     /**
      * discards highest NumberCard from playerhand
+     *
      * @param highest highest # to be discarded
      */
-    private void discard(List<NumberCard> highest){
+    private void discard(List<NumberCard> highest) {
+        // scanner for index input
         Scanner scanner = new Scanner(System.in);
         System.out.println(highest);
 
         System.out.println("Welche Karte möchtest du wegwerfen?");
         int index = scanner.nextInt();
 
+        // check for index exception
         if (index <= 0 || index > highest.size()) {
             System.out.println("Falsche Eingabe");
             discard(highest);
 
         } else {
 
+            //remove the highest from current player that ended turn
             pc.getCurrentPlayer().getCards().remove(highest.get(index - 1));
 
             System.out.println("NACH WEGWURF ----------------");
@@ -214,7 +221,7 @@ public class Game {
      * Prints hands of all players
      */
     private void printHands() {
-        //print player hands
+        // print player hands
         for (Player player : pc.getPlayers()) {
             System.out.println("Spieler: " + player.getName());
             for (NumberCard card : player.getCards()) {
@@ -235,6 +242,7 @@ public class Game {
 
     /**
      * shows all available cards to choose from
+     *
      * @param diceNumber number the player rolled
      * @return returns list of available cards
      */
