@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c2f48a1e-3d3a-44d2-82a0-57d9e6b79efa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" afterDir="false" />
     </list>
@@ -81,7 +81,8 @@
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
@@ -141,7 +142,7 @@
       <workItem from="1666085854751" duration="4396000" />
       <workItem from="1666103833934" duration="1321000" />
       <workItem from="1666266894169" duration="11279000" />
-      <workItem from="1666445968996" duration="7986000" />
+      <workItem from="1666445968996" duration="10025000" />
     </task>
     <servers />
   </component>

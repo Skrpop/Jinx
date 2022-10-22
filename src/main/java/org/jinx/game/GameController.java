@@ -36,7 +36,10 @@ public class GameController {
         g1.fillDeck();
 
         // i is the current round
-        g1.play(0);
+        for(int i = 1; i < 4; i++){
+            g1.play(i);
+        }
+
         writeHighScoreToFile();
 
     }
@@ -53,7 +56,7 @@ public class GameController {
                 for(NumberCard card : player.getCards()){
                     total += Integer.parseInt(card.getName());
                 }
-                myWriter.append(String.valueOf(total)).append(player.getName());
+                myWriter.append(String.valueOf(total)).append("\t" + player.getName());
                 myWriter.append("\n");
             }
             myWriter.close();

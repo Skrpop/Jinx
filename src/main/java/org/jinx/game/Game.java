@@ -139,13 +139,7 @@ public class Game {
             player.getCards().removeAll(tempCards);
         }
 
-        //print player hands
-        for (Player player : pc.getPlayers()) {
-            for (NumberCard card : player.getCards()) {
-                System.out.println(card.toString());
-            }
-            System.out.println();
-        }
+        printHands();
 
         //find highest card
         if (!pc.getCurrentPlayer().getCards().isEmpty()) {
@@ -165,9 +159,25 @@ public class Game {
                 }
             }
             System.out.println(temp);
+            System.out.println("Welche Karte möchtest du wegwerfen?");
+            int index = scanner.nextInt();
+            pc.getCurrentPlayer().getCards().remove(temp.get(index-1));
+
+            System.out.println("NACH WEGWURF ----------------");
+            printHands();
         }
 
 
+    }
+
+    private void printHands(){
+        //print player hands
+        for (Player player : pc.getPlayers()) {
+            for (NumberCard card : player.getCards()) {
+                System.out.println(card.toString());
+            }
+            System.out.println();
+        }
     }
 
     /**
