@@ -24,6 +24,9 @@ public class Game {
         deck = new Stack<>();
     }
 
+    /**
+     * randomly fills the deck with cards
+     */
     public void fillDeck() {
 
         for (CardColor color : CardColor.values()) {
@@ -35,6 +38,9 @@ public class Game {
         Collections.shuffle(deck);
     }
 
+    /**
+     * takes cards from deck onto field
+     */
     private void setField() {
 
         for (int i = 0; i < field.length; i++) {
@@ -42,7 +48,11 @@ public class Game {
         }
     }
 
+    /**
+     * prints a 4x4 cardfield
+     */
     private void printField() {
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 System.out.print(field[i * 4 + j] == null ? "null\t" : field[i * 4 + j].toString() + "\t");
@@ -107,11 +117,14 @@ public class Game {
 
                 if (index <= 0 || index > availableCards.size()) {
                     System.out.println("Falsche Eingabe");
+
                 } else {
                     NumberCard card = availableCards.get(index - 1);
                     pc.getCurrentPlayer().getCards().add(card);
                     chosen = true;
+
                     System.out.println(pc.getCurrentPlayer().getCards().toString() + "\n");
+
                     for (int i = 0; i < field.length; i++) {
                         if (field[i] != null && field[i].equals(card)) {
                             field[i] = null;
@@ -126,8 +139,11 @@ public class Game {
         // Remove cards of player that has equal color as the cards in the field
         // ! move this to a separate method later !
         for (Player player : pc.getPlayers()) {
+
             List<NumberCard> tempCards = new ArrayList<>();
+
             for (NumberCard cardsOfPlayer : player.getCards()) {
+
                 for (NumberCard cardInField : field) {
                     if (cardInField != null && cardsOfPlayer.getColor().equals(cardInField.getColor())) {
                         tempCards.add(cardsOfPlayer);
@@ -149,28 +165,44 @@ public class Game {
             for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
                 if (Integer.parseInt(pc.getCurrentPlayer().getCards().get(i).getName()) > Integer.parseInt(max.getName())) {
                     max = pc.getCurrentPlayer().getCards().get(i);
+
                 }
             }
 
             List<NumberCard> temp = new ArrayList<>();
             for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
+
                 if (max.getName().equals(pc.getCurrentPlayer().getCards().get(i).getName())) {
                     temp.add(pc.getCurrentPlayer().getCards().get(i));
                 }
             }
+
+
             System.out.println(temp);
+
             System.out.println("Welche Karte möchtest du wegwerfen?");
+
             int index = scanner.nextInt();
-            pc.getCurrentPlayer().getCards().remove(temp.get(index-1));
 
-            System.out.println("NACH WEGWURF ----------------");
-            printHands();
+            if (index <= 0 || index > pc.getCurrentPlayer().getCards().size()) {
+                System.out.println("Falsche Eingabe");
+
+            } else {
+
+                pc.getCurrentPlayer().getCards().remove(temp.get(index - 1));
+
+                System.out.println("NACH WEGWURF ----------------");
+                printHands();
+            }
+
         }
-
 
     }
 
-    private void printHands(){
+    /**
+     * Prints hands of all players
+     */
+    private void printHands() {
         //print player hands
         for (Player player : pc.getPlayers()) {
             for (NumberCard card : player.getCards()) {
@@ -189,6 +221,11 @@ public class Game {
         return (int) (Math.random() * 6) + 1;
     }
 
+    /**
+     * shows all available cards to choose from
+     * @param diceNumber number the player rolled
+     * @return returns list of available cards
+     */
     private List<NumberCard> showAvailableCards(int diceNumber) {
 
         List<NumberCard> cards = new ArrayList<>();
@@ -201,6 +238,5 @@ public class Game {
 
         return cards;
     }
-
 
 }
