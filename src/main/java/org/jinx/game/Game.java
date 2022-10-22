@@ -160,6 +160,9 @@ public class Game {
 
     }
 
+    /**
+     * finds highest NumberCard in playerhand
+     */
     private void findHighest(){
         if (!pc.getCurrentPlayer().getCards().isEmpty()) {
 
@@ -183,6 +186,10 @@ public class Game {
         }
     }
 
+    /**
+     * discards highest NumberCard from playerhand
+     * @param highest highest # to be discarded
+     */
     private void discard(List<NumberCard> highest){
         Scanner scanner = new Scanner(System.in);
         System.out.println(highest);
