@@ -1,6 +1,7 @@
 package org.jinx.player;
 
 import org.jinx.card.Card;
+import org.jinx.card.LuckyCard;
 import org.jinx.card.NumberCard;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class Player {
      */
     private List<NumberCard> cards;
 
+    private List<LuckyCard> luckyCards;
+
     /**
      * Standard COnstructor for the Player
      * @param name
@@ -31,6 +34,7 @@ public class Player {
     public Player(String name) {
         this.name = name;
         this.cards = new ArrayList<>();
+        this.luckyCards = new ArrayList<>();
     }
 
     /* ---------- Getter and Setter Methods ---------- */
@@ -48,5 +52,9 @@ public class Player {
 
     public List<NumberCard> getCards() {
         return cards;
+    }
+
+    public List<LuckyCard> getLuckyCards(){
+        return luckyCards;
     }
 }
