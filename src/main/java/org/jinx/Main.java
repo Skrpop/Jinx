@@ -1,6 +1,5 @@
 package org.jinx;
 
-import org.jinx.game.Game;
 import org.jinx.game.GameController;
 
 import java.util.logging.Logger;

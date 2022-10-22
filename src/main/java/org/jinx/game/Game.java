@@ -45,7 +45,7 @@ public class Game {
     private void printField() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.print(field[i * 4 + j] == null ? "null" : field[i * 4 + j].toString() + "\t");
+                System.out.print(field[i * 4 + j] == null ? "null\t" : field[i * 4 + j].toString() + "\t");
             }
 
             System.out.println();
@@ -139,11 +139,32 @@ public class Game {
             player.getCards().removeAll(tempCards);
         }
 
+        //print player hands
         for (Player player : pc.getPlayers()) {
             for (NumberCard card : player.getCards()) {
                 System.out.println(card.toString());
             }
             System.out.println();
+        }
+
+        //find highest card
+        if (!pc.getCurrentPlayer().getCards().isEmpty()) {
+
+            NumberCard max = pc.getCurrentPlayer().getCards().get(0);
+
+            for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
+                if (Integer.parseInt(pc.getCurrentPlayer().getCards().get(i).getName()) > Integer.parseInt(max.getName())) {
+                    max = pc.getCurrentPlayer().getCards().get(i);
+                }
+            }
+
+            List<NumberCard> temp = new ArrayList<>();
+            for (int i = 0; i < pc.getCurrentPlayer().getCards().size(); i++) {
+                if (max.getName().equals(pc.getCurrentPlayer().getCards().get(i).getName())) {
+                    temp.add(pc.getCurrentPlayer().getCards().get(i));
+                }
+            }
+            System.out.println(temp);
         }
 
 
