@@ -67,45 +67,60 @@ public class Game {
      * This method controls the gameflow for each round
      */
     public void play(int currentRound) {
+        pickAvailable(currentRound);
+        discardSameColor();
+        printHands();
+        findHighest();
+    }
+
+    /**
+     * user prompt to throw dice
+     *
+     * @return user chosen dice value
+     */
+    private int throwDice() {
 
         Scanner scanner = new Scanner(System.in);
 
+        int wuerfelergebnis = dice();
+        System.out.println("Wuerfel: " + wuerfelergebnis +
+                "\nNochmal wuerfeln? [yes|no]");
+
+        if (scanner.next().equals("yes")) {
+            wuerfelergebnis = dice();
+            System.out.println("Wuerfel: " + wuerfelergebnis);
+        }
+
+        return wuerfelergebnis;
+
+    }
+
+    /**
+     * method for user to pick from available cards
+     *
+     * @param currentRound round the player is in
+     */
+    private void pickAvailable(int currentRound) {
+        Scanner scanner = new Scanner(System.in);
         setField();
-        boolean available = true;
         System.out.println("Runde " + currentRound);
-        while (available) {
+        while (true) {
             printField();
             pc.next(); // Player ändern
 
             System.out.println("\nAktiver Spieler: " + pc.getCurrentPlayer().getName());
-
             System.out.println("Drücken sie eine Taste um zu Würfeln");
-
             scanner.next();
-            //wuerfel 2 mal werfen
-            int wuerfelergebnis = dice();
-            System.out.println("Wuerfel: " + wuerfelergebnis +
-                    "\nNochmal wuerfeln? [yes|no]");
 
-            if (scanner.next().equals("yes")) {
-                wuerfelergebnis = dice();
-                System.out.println("Wuerfel: " + wuerfelergebnis);
-            }
-
-            List<NumberCard> availableCards = showAvailableCards(wuerfelergebnis);
+            List<NumberCard> availableCards = addAvailableCards(throwDice());
 
             // if true, then the round is over
             if (availableCards.isEmpty()) {
                 System.out.println("ENDE");
-                //available = false;
                 break;
             }
-
             // show player available cards
-            System.out.println("AVAILABLE CARDS");
-            for (NumberCard card : availableCards) {
-                System.out.print(card.toString() + " ");
-            }
+            printAvailableCards(availableCards);
 
             System.out.println("\n---------------\n");
 
@@ -120,7 +135,6 @@ public class Game {
                     System.out.println("Falsche Eingabe");
 
                 } else {
-
                     // add card to hand
                     NumberCard card = availableCards.get(index - 1);
                     pc.getCurrentPlayer().getCards().add(card);
@@ -128,20 +142,29 @@ public class Game {
 
                     System.out.println("Spieler: " + pc.getCurrentPlayer().getName() + "\n" + pc.getCurrentPlayer().getCards().toString() + "\n");
 
-                    // remove card from field
-                    for (int i = 0; i < field.length; i++) {
-                        if (field[i] != null && field[i].equals(card)) {
-                            field[i] = null;
-                            break;
-                        }
-                    }
+                    removeCardFromField(card);
                 }
             }
         }
+    }
 
+    /**
+     * removes player chosen card from field
+     * @param card card to be removed
+     */
+    private void removeCardFromField(NumberCard card) {
+        for (int i = 0; i < field.length; i++) {
+            if (field[i] != null && field[i].equals(card)) {
+                field[i] = null;
+                break;
+            }
+        }
+    }
 
-        // Remove cards of player that has equal color as the cards in the field
-        // ! move this to a separate method later !
+    /**
+     * discards cards of same color at end of round
+     */
+    private void discardSameColor() {
         for (Player player : pc.getPlayers()) {
 
             List<NumberCard> tempCards = new ArrayList<>();
@@ -157,9 +180,6 @@ public class Game {
             }
             player.getCards().removeAll(tempCards);
         }
-
-        printHands();
-        findHighest();
     }
 
     /**
@@ -246,7 +266,7 @@ public class Game {
      * @param diceNumber number the player rolled
      * @return returns list of available cards
      */
-    private List<NumberCard> showAvailableCards(int diceNumber) {
+    private List<NumberCard> addAvailableCards(int diceNumber) {
 
         List<NumberCard> cards = new ArrayList<>();
 
@@ -257,6 +277,18 @@ public class Game {
         }
 
         return cards;
+    }
+
+    /**
+     * prints all cards to choose from
+     *
+     * @param availableCards List of available Cards
+     */
+    private void printAvailableCards(List<NumberCard> availableCards) {
+        System.out.println("AVAILABLE CARDS");
+        for (NumberCard card : availableCards) {
+            System.out.print(card.toString() + " ");
+        }
     }
 
 }

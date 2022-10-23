@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2f48a1e-3d3a-44d2-82a0-57d9e6b79efa" name="Changes" comment="" />
+    <list default="true" id="c2f48a1e-3d3a-44d2-82a0-57d9e6b79efa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" afterDir="false" />
+    </list>
     <list id="724caafb-73ed-4e9d-8fb3-c3c7ab2bc0d6" name="Changes by louis der motherfucker" comment="" />
     <list id="3e951ab4-bf93-4233-827f-8d62b05310ac" name="Changes by Yahiatene" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,16 +73,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.jinx.Main" />
@@ -137,7 +140,8 @@
       <workItem from="1666085854751" duration="4396000" />
       <workItem from="1666103833934" duration="1321000" />
       <workItem from="1666266894169" duration="11279000" />
-      <workItem from="1666445968996" duration="18813000" />
+      <workItem from="1666445968996" duration="19073000" />
+      <workItem from="1666530850752" duration="2215000" />
     </task>
     <servers />
   </component>
