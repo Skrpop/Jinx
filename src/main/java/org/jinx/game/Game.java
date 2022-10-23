@@ -6,7 +6,12 @@ import org.jinx.card.NumberCard;
 import org.jinx.player.Player;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
+import java.util.function.Function;
 
 
 public class Game {
@@ -102,6 +107,7 @@ public class Game {
      */
     private void pickAvailable(int currentRound) {
         Scanner scanner = new Scanner(System.in);
+
         setField();
         System.out.println("Runde " + currentRound);
         while (true) {
@@ -150,6 +156,7 @@ public class Game {
 
     /**
      * removes player chosen card from field
+     *
      * @param card card to be removed
      */
     private void removeCardFromField(NumberCard card) {
@@ -241,15 +248,28 @@ public class Game {
      * Prints hands of all players
      */
     private void printHands() {
-        // print player hands
         for (Player player : pc.getPlayers()) {
-            System.out.println("Spieler: " + player.getName());
-            for (NumberCard card : player.getCards()) {
-                System.out.println(card.toString());
-            }
-            System.out.println();
+            System.out.println(player.getName() + ": " + player.getCards().toString());
         }
     }
+
+    public void setDeckCSV() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("NumberCards.csv"));
+            int i = 0;
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                NumberCard card = new NumberCard(values[0], CardColor.valueOf(values[1]));
+                deck.add(card);
+            }
+            System.out.println(deck);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     /**
      * This methods simulates a dice

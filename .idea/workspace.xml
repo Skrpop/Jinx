@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c2f48a1e-3d3a-44d2-82a0-57d9e6b79efa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jinx/game/GameController.java" afterDir="false" />
     </list>
     <list id="724caafb-73ed-4e9d-8fb3-c3c7ab2bc0d6" name="Changes by louis der motherfucker" comment="" />
     <list id="3e951ab4-bf93-4233-827f-8d62b05310ac" name="Changes by Yahiatene" comment="" />
@@ -82,6 +85,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kerim\Documents\Jinx2" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.jinx.Main" />

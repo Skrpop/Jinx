@@ -32,7 +32,8 @@ public class GameController {
     public void start() {
         Game g1 = new Game();
         pc.addPlayers();
-        g1.fillDeck();
+//
+        g1.setDeckCSV();
 
         // i is the current round
         for(int i = 1; i < 4; i++){
